@@ -15,7 +15,6 @@
 <?php do_action( 'spacious_before_footer' ); ?>
 
 <footer id="colophon" class="clearfix">
-	<h2>Let's Connect</h2>	
 
 	<?php get_sidebar( 'footer' ); ?>
 	<div class="footer-socket-wrapper clearfix">

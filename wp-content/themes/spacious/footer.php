@@ -15,7 +15,6 @@
 <?php do_action( 'spacious_before_footer' ); ?>
 
 <footer id="colophon" class="clearfix">
-	is this working
 	<?php get_sidebar( 'footer' ); ?>
 	<div class="footer-socket-wrapper clearfix">
 		<div class="inner-wrap">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Kangaroos cannot jump here' );
 }
 
-define( 'AI1WMTE_VERSION', '1.5' );
+define( 'AI1WMTE_VERSION', '1.6' );
 define( 'AI1WMTE_PLUGIN_NAME', 'all-in-one-wp-migration-file-extension' );
 
 define( 'AI1WMTE_LIB_PATH', AI1WMTE_PATH . DIRECTORY_SEPARATOR . 'lib' );

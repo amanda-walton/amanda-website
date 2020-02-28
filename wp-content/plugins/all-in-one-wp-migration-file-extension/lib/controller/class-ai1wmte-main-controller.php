@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,6 +40,7 @@ class Ai1wmte_Main_Controller {
 	private function activate_actions() {
 		add_action( 'admin_init', array( $this, 'init' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_import_scripts_and_styles' ), 20 );
+
 		add_action( 'plugins_loaded', array( $this, 'ai1wm_loaded' ), 20 );
 		add_action( 'plugins_loaded', array( $this, 'ai1wm_buttons' ), 20 );
 		add_action( 'plugins_loaded', array( $this, 'ai1wm_commands' ), 20 );
@@ -113,19 +114,23 @@ class Ai1wmte_Main_Controller {
 			array( 'jquery' )
 		);
 
-		wp_localize_script( 'ai1wmte_uploader', 'ai1wmte_uploader', array(
-			'chunk_size'  => apply_filters( 'ai1wm_max_chunk_size', AI1WM_MAX_CHUNK_SIZE ),
-			'max_retries' => apply_filters( 'ai1wm_max_chunk_retries', AI1WM_MAX_CHUNK_RETRIES ),
-			'url'         => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_import' ) ),
-			'params'      => array(
-				'priority'   => 5,
-				'secret_key' => get_option( AI1WM_SECRET_KEY ),
-			),
-			'filters'     => array(
-				'ai1wm_archive_extension' => array( 'wpress' ),
-				'ai1wm_archive_size'      => apply_filters( 'ai1wm_max_file_size', AI1WM_MAX_FILE_SIZE ),
-			),
-		) );
+		wp_localize_script(
+			'ai1wmte_uploader',
+			'ai1wmte_uploader',
+			array(
+				'chunk_size'  => apply_filters( 'ai1wm_max_chunk_size', AI1WM_MAX_CHUNK_SIZE ),
+				'max_retries' => apply_filters( 'ai1wm_max_chunk_retries', AI1WM_MAX_CHUNK_RETRIES ),
+				'url'         => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_import' ) ),
+				'params'      => array(
+					'priority'   => 5,
+					'secret_key' => get_option( AI1WM_SECRET_KEY ),
+				),
+				'filters'     => array(
+					'ai1wm_archive_extension' => array( 'wpress' ),
+					'ai1wm_archive_size'      => apply_filters( 'ai1wm_max_file_size', AI1WM_MAX_FILE_SIZE ),
+				),
+			)
+		);
 	}
 
 	/**
